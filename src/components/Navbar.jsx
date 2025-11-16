@@ -50,9 +50,6 @@ const Navbar = ({ onSelectCategory }) => {
     }
   };
 
-  console.log(activeLink);
-  // console.log(navlinks);
-
   return (
     <header className="fixed top-0 w-full z-50 bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700 shadow-sm transition-colors duration-300">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -73,7 +70,6 @@ const Navbar = ({ onSelectCategory }) => {
               </Link>
             )
           })}
-          {console.log(selectedCategory !== '')}
           {/* Categories Dropdown */}
           <div className="relative group">
             <button className={`  hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium flex items-center
