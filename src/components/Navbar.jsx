@@ -54,7 +54,13 @@ const Navbar = ({ onSelectCategory }) => {
     <header className="fixed top-0 w-full z-50 bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-700 shadow-sm transition-colors duration-300">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-gray-900 dark:text-white hover:opacity-80 transition-colors">
+        <Link to="/"
+          onClick={() => {
+            setActiveLink('/');
+            setSelectedCategory('');
+            onSelectCategory('');
+          }}
+          className="text-2xl font-bold text-gray-900 dark:text-white hover:opacity-80 transition-colors">
           Sheryians
         </Link>
 
@@ -63,7 +69,11 @@ const Navbar = ({ onSelectCategory }) => {
 
           {navlinks.map((link) => {
             return (
-              <Link key={link.to} to={link.to} onClick={() => setActiveLink(link.to)}
+              <Link key={link.to} to={link.to} onClick={() => {
+                setActiveLink(link.to);
+                setSelectedCategory('');
+                onSelectCategory('');
+              }}
                 className={` hover:text-blue-600 dark:hover:text-blue-400 transition-colors 
                 font-medium ${link.to === activeLink ? 'text-blue-500 font-bold' : 'text-gray-900 dark:text-gray-100'}`}>
                 {link.label}
